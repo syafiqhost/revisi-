@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator KPR</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset dan Gaya Dasar */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        
+        .kprhome {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            position: relative;
+            margin-bottom: 0;
+            margin-top: 5rem;
+        }
+        
+        .kprhome .konten {
+            flex: 1;
+            padding: 1.4rem 7%;
+            max-width: 80rem;
+        }
+        
+        .kprhome .konten h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 5em;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+        
+        .kprhome .konten h1 span {
+            color: var(--primary);
+        }
+        
+        .kprhome .konten p {
+            font-size: 2rem;
+            margin-top: -1rem;
+            line-height: 1.4;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .kprhome .konten .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 2rem 4rem;
+            font-size: 1.5rem;
+            color: white;
+            background: linear-gradient(270deg, #036E89, #369CB0);
+            border-radius: 30px;
+            box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+            text-decoration: none;
+            /* Menghilangkan garis bawah pada link */
+            position: relative;
+            /* Untuk posisi panah */
+            overflow: hidden;
+            /* Agar panah tidak keluar dari tombol */
+        }
+        
+        .kprhome .konten .btn:hover {
+            background: transparent;
+            border: 1px solid #369CB0;
+            color: #369CB0;
+        }
+        
+        .arrow {
+            display: inline-block;
+            margin-left: 10px;
+            /* Jarak antara teks dan panah */
+            animation: bounce 1s infinite;
+            /* Animasi bounce */
+        }
+        
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(5px);
+                /* Gerakan ke bawah */
+            }
+            60% {
+                transform: translateY(2px);
+                /* Gerakan ke bawah yang lebih sedikit */
+            }
+        }
+        /* Gaya untuk gambar bus */
+        /* Gaya untuk gambar bus */
+        
+        .kprhome .kprumah {
+            position: relative;
+            margin-left: 0;
+            /* Reset margin kiri */
+            margin-right: 0;
+            /* Pastikan margin kanan juga 0 */
+            text-align: center;
+            /* Menjaga gambar tetap di tengah */
+        }
+        
+        .kprhome .kprumah img {
+            width: 350px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            margin-right: 2rem;
+            /* Menjaga gambar agar tetap berada di tengah */
+        }
+        /* Media Queries untuk responsif */
+        
+        @media screen and (max-width: 768px) {
+            .kprhome {
+                text-align: center;
+                min-height: 80vh;
+                flex-direction: column;
+                /* Menyusun konten dan gambar secara vertikal */
+                justify-content: flex-start;
+                margin-top: 12rem;
+                /* Posisi konten di bagian atas */
+            }
+            .kprumah {
+                margin-top: -3rem;
+                /* Memberikan jarak antara teks dan gambar */
+            }
+            .kprhome .konten h1 {
+                text-shadow: none;
+                font-size: 3em;
+            }
+            .kprhome .konten p {
+                font-size: 1.7rem;
+            }
+            .kprhome .konten .btn {
+                font-size: 1.5rem;
+                padding: 1.5rem 2.5rem;
+            }
+            .kprhome .kprumah img {
+                width: 100%;
+                /* Gambar lebih kecil dan responsif */
+                max-width: 300px;
+                /* Maksimalkan ukuran gambar agar tidak terlalu besar */
+                height: auto;
+                /* Jaga rasio gambar */
+                margin: 0 auto;
+                margin-top: -3rem;
+                /* Menjaga gambar tetap di tengah */
+            }
+        }
+        /* Media Queries untuk perangkat dengan lebar maksimal 480px (ponsel kecil) */
+        
+        @media screen and (max-width: 480px) {
+            .kprhome {
+                text-align: center;
+                min-height: 80vh;
+                flex-direction: column;
+                /* Menyusun konten dan gambar secara vertikal */
+                justify-content: flex-start;
+                margin-top: 12rem;
+                /* Posisi konten di bagian atas */
+            }
+            .kprhome .konten h1 {
+                font-size: 3em;
+            }
+            .kprhome .konten p {
+                font-size: 1.7rem;
+            }
+            .kprhome .konten .btn {
+                font-size: 1.5rem;
+                padding: 1.5rem 3rem;
+            }
+            .kprumah {
+                margin-top: -3rem;
+            }
+            .kprhome .kprumah img {
+                width: 100%;
+                /* Gambar responsif penuh pada ponsel */
+                max-width: 250px;
+                margin: 0 auto;
+                margin-top: -3rem;
+                /* Menjaga gambar tetap di tengah */
+            }
+        }
+        
+        .kkontainer {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 8rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #222;
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            /* Jarak antar elemen */
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+            /* Pastikan elemen tetap dalam satu baris */
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .form-row .form-group input {
+            min-width: 0;
+            /* Agar input tidak melampaui ruang yang tersedia */
+            max-width: 100%;
+            /* Pastikan input tetap responsif */
+            box-sizing: border-box;
+        }
+        /* Responsif untuk perangkat kecil */
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                /* Ubah arah flex menjadi kolom */
+                gap: 5px;
+                /* Kurangi jarak antar elemen */
+            }
+            .form-row .form-group {
+                width: 100%;
+                /* Pastikan setiap grup mengambil lebar penuh */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .form-row {
+                flex-direction: column;
+                /* Ubah arah flex menjadi kolom */
+                gap: 5px;
+                /* Kurangi jarak antar elemen */
+            }
+            .form-row .form-group {
+                width: 100%;
+                /* Pastikan setiap grup mengambil lebar penuh */
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            font-size: 1.7rem;
+            color: #333;
+            font-weight: 400;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 2rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            /* Menambah padding untuk memberikan ruang lebih besar */
+            font-size: 18px;
+            /* Menambah ukuran font untuk membuat teks lebih besar */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        button {
+            width: 100%;
+            background-color: #369CB0;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #188398;
+        }
+        
+        .result {
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 1.4rem;
+        }
+        
+        table th,
+        table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        table th {
+            background-color: #f4f4f4;
+        }
+        
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .info {
+            margin-top: 40px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .info h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+        
+        .info p {
+            margin: 5px 0;
+            line-height: 1.6;
+            font-size: 1.5rem;
+        }
+        
+        .highlight {
+            font-size: 1.3rem;
+            /* Ukuran font lebih besar */
+            font-weight: bold;
+            /* Menebalkan teks */
+            counter-reset: black;
+            /* Warna teks */
+            margin-bottom: 15px;
+        }
+        
+        #hasil p {
+            font-size: 1.3rem;
+            /* Ukuran font lebih besar */
+            font-weight: bold;
+            /* Teks tebal */
+            color: black;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div class="loding">
+        <header class="header">
+            <nav class="navbar">
+                <a href="index.html" class="nav-logo"><img src="logofix.jpg" alt=""></a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="kpr.html" class="nav-link" style="color: #369CB0;">Layanan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="official.html" class="nav-link">Official partner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <a href="https://wa.me/62822133355?text=Halo adhome.co.id saya ingin bertanya seputar AD.Home" class="action-btn">Hubungi Kami</a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+
+
+        <section class="kprhome">
+            <main class="konten">
+                <div data-aos="fade-right" data-aos-duration="700">
+                    <h1>
+                        <span>Manfaatkan fitur dari 
+                        <span style="color: black;">
+                            <span id="typed-text" style="   background: linear-gradient(270deg,#369CB0 , #036E89);;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;">adhome</span>
+                        </span>
+                        </span>
+                    </h1>
+                    <p>Hitung KPR Anda dengan mudah dan cepat menggunakan fitur dari <span style="color: #369CB0;">ad</span>home</p>
+
+                    <a href="#target" class="btn">
+                    Scroll
+                    <span class="arrow">↓</span>
+                </a>
+
+                    <!-- Elemen target yang ingin digulirkan -->
+
+                </div>
+            </main>
+
+            <div class="kprumah">
+                <img src="housekpr.png" alt="">
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <div class="kkontainer" id="target">
+            <h2>Kalkulator KPR</h2>
+            <div class="form-group">
+                <label for="harga-rumah">Harga Rumah (Rp)</label>
+                <input type="text" id="harga-rumah" placeholder="Masukkan harga rumah">
+            </div>
+            <div class="form-group">
+                <label for="dp">Jumlah DP (%)</label>
+                <input type="number" id="dp" placeholder="Masukkan jumlah DP">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="suku-bunga">Suku Bunga (%)</label>
+                    <input type="number" id="suku-bunga" placeholder="suku bunga (tahunan)">
+                </div>
+                <div class="form-group">
+                    <label for="jangka-waktu">Jangka Waktu (Tahun)</label>
+                    <input type="number" id="jangka-waktu" placeholder="jangka waktu (tahun)">
+                </div>
+            </div>
+
+            <button onclick="hitungKPR()">Hitung</button>
+            <div class="result" id="hasil"></div>
+            <div class="error" id="error"></div>
+
+            <!-- <div class="info">
+            <h3>Ketentuan dan Persyaratan</h3>
+            <p>1. Minimal DP sebesar 20% dari harga rumah.</p>
+            <p>2. Suku bunga dapat berubah sewaktu-waktu sesuai kebijakan bank.</p>
+            <p>3. Perhitungan ini hanya sebagai simulasi, hasil aktual bergantung pada kebijakan bank.</p>
+
+        </div> -->
+
+        </div>
+        <!-- footer section starts here  -->
+        <footer>
+            <section class="footer">
+                <div class="container">
+                    <div class="detail">
+                        <h3><img src="logor.png" alt=""></h3>
+                        <p>Ruko River Town, JL. Celebration Boulevard Blok BA 2 No. 20. Grand Wisata Kel. Lambang Sari. Kec. Tambun Selatan. Kab. Bekasi - Jawa Barat (17510)</p>
+                        <h5>Social Media </h5>
+                        <a href="#">Official.adhome@gmail.com</a>
+                        <!--  -->
+                        <div class="social">
+                            <a href="https://www.facebook.com/username" target="_blank" class="icon" title="Facebook">
+                                <i class="fab fa-facebook-square"></i>
+                            </a>
+                            <a href="https://www.instagram.com/adhome.co.id?igsh=MWtjOTBvbWk1cnFtdA==" target="_blank" class="icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@username" target="_blank" class="icon" title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="about-us">
+                        <h4>Menu</h4>
+                        <li><a href="kpr.html">layanan</a></li>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="official.html">official partner<span>Lihat Sekarang!</span></a></li>
+                        <li><a href="contact.html">contact</a></li>
+                    </div>
+                    <div class="about-us">
+                        <h4>help</h4>
+                        <li><a href="#">contact</a></li>
+                    </div>
+                    <div class="about-us">
+                        <h4>Butuh Info?</h4>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="about.html">about adhome</a></li>
+                    </div>
+                </div>
+
+                <div class="copyright">
+
+                    <h6>&copy;2025 - adhome all rights reserved</h6>
+
+                </div>
+            </section>
+        </footer>
+        <a href="https://wa.me/62822133355?text=Halo adhome.co.id saya ingin bertanya seputar AD.Home" class="whatsapp-float" target="_blank" title="Hubungi kami di WhatsApp">
+            <div class="whatsapp-ripple"></div>
+            <img src="iconwa.png" alt="WhatsApp">
+        </a>
+
+    </div>
+    </div>
+    <!-- footer section ends here  -->
+    <script>
+        function formatRupiah(angka, prefix) {
+            const numberString = angka.replace(/[^,\d]/g, '').toString();
+            const split = numberString.split(',');
+            const sisa = split[0].length % 3;
+            let rupiah = split[0].substr(0, sisa);
+            const ribuan = split[0].substr(sisa).match(/\d{3}/g);
+
+            if (ribuan) {
+                const separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix === undefined ? rupiah : (rupiah ? prefix + rupiah : '');
+        }
+
+        document.getElementById('harga-rumah').addEventListener('input', function(e) {
+            const input = e.target;
+            const value = input.value.replace(/\./g, '');
+            input.value = formatRupiah(value, '');
+        });
+
+        function hitungKPR() {
+            const hargaRumah = parseFloat(document.getElementById('harga-rumah').value.replace(/\./g, ''));
+            const dpPersen = parseFloat(document.getElementById('dp').value);
+            const sukuBunga = parseFloat(document.getElementById('suku-bunga').value);
+            const jangkaWaktu = parseInt(document.getElementById('jangka-waktu').value);
+            const errorElement = document.getElementById('error');
+            const hasilElement = document.getElementById('hasil');
+
+            errorElement.textContent = '';
+            hasilElement.innerHTML = '';
+
+            if (isNaN(hargaRumah) || isNaN(dpPersen) || isNaN(sukuBunga) || isNaN(jangkaWaktu)) {
+                errorElement.textContent = 'Mohon isi semua field dengan angka yang valid.';
+                return;
+            }
+
+            if (dpPersen < 0 || dpPersen > 100) {
+                errorElement.textContent = 'DP harus antara 0% hingga 100%.';
+                return;
+            }
+
+            if (sukuBunga <= 0) {
+                errorElement.textContent = 'Suku bunga harus lebih besar dari 0.';
+                return;
+            }
+
+            if (jangkaWaktu <= 0 || jangkaWaktu > 100) {
+                errorElement.textContent = 'Jangka waktu harus antara 1 hingga 100 tahun.';
+                return;
+            }
+
+            const dp = hargaRumah * (dpPersen / 100);
+            const pokokPinjaman = hargaRumah - dp;
+            const sukuBungaBulanan = sukuBunga / 12 / 100;
+
+            const startYear = Math.max(1, jangkaWaktu - 2);
+            const endYear = Math.min(100, jangkaWaktu + 2);
+
+            let hasilHTML = `
+                <p><strong>Harga Rumah:</strong> Rp ${hargaRumah.toLocaleString('id-ID')}</p>
+                <p><strong>DP (${dpPersen}%):</strong> Rp ${dp.toLocaleString('id-ID')}</p>
+                <p><strong>Pokok Pinjaman:</strong> Rp ${pokokPinjaman.toLocaleString('id-ID')}</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jangka Waktu (Tahun)</th>
+                            <th>Cicilan Bulanan (Rp)</th>
+                            <th>Total Pembayaran (Rp)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            for (let i = startYear; i <= endYear; i++) {
+                const totalBulan = i * 12;
+                const cicilanBulanan = pokokPinjaman * (sukuBungaBulanan * Math.pow(1 + sukuBungaBulanan, totalBulan)) /
+                    (Math.pow(1 + sukuBungaBulanan, totalBulan) - 1);
+                const totalPembayaran = cicilanBulanan * totalBulan;
+
+                const highlightStyle = (i === jangkaWaktu) ? 'style="background-color: #369CB0;"' : '';
+
+                hasilHTML += `
+                    <tr ${highlightStyle}>
+                        <td>${i} tahun</td>
+                        <td>${cicilanBulanan.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${totalPembayaran.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    </tr>
+                `;
+            }
+
+            hasilHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            hasilElement.innerHTML = hasilHTML;
+        }
+    </script>
+    <script>
+        document.querySelector('.btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah perilaku default link
+
+            const targetId = this.getAttribute('href'); // Mendapatkan ID target dari href
+            const targetElement = document.querySelector(targetId); // Mencari elemen target
+
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY; // Mendapatkan posisi target
+                const offsetPosition = targetPosition - 100; // Mengurangi 100 piksel dari posisi target
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth' // Mengatur scroll menjadi halus
+                });
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var options = {
+                strings: ["adhome", "adhome", "adhome Kalkulator KPR"],
+                typeSpeed: 30,
+                backSpeed: 17,
+                backDelay: 1000,
+                loop: true,
+            };
+
+            var typed = new Typed("#typed-text", options);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none';
+            const content = document.querySelector('.loding');
+            content.style.display = 'block';
+            document.body.style.opacity = 1;
+        }, 1000);
+
+        document.body.style.opacity = 1;
+    </script>
+</body>
+
+</html>

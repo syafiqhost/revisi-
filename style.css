@@ -1,0 +1,651 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+html.body {
+    margin: 0;
+    overflow: hidden;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    position: fixed;
+    font-family: 'Poppins', sans-serif;
+    /* Membuat header tetap di atas saat scroll */
+    top: 0;
+    /* Posisi di bagian atas */
+    left: 0;
+    width: 100%;
+    /* Meluas secara penuh */
+    z-index: 1000;
+    /* Agar berada di atas elemen lain */
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    font-weight: 600;
+    line-height: 0.9;
+    /* Pastikan memiliki warna latar */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem .6rem;
+    z-index: 1000;
+    position: relative;
+}
+
+.hamburger {
+    display: none;
+}
+
+.hamburger {
+    background: linear-gradient(270deg, #036E89, #369CB0);
+    /* Warna latar belakang biru */
+    padding: 3px 5px;
+    /* Beri sedikit ruang untuk garis-garis */
+    border-radius: 5px;
+    /* Tambahkan border-radius untuk sudut yang lembut */
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bar {
+    display: block;
+    width: 24px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    /* background-color: #101010; */
+    background-color: white;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5rem;
+}
+
+.nav-item a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: .8;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1;
+    /* font-size: 1.6rem; */
+    font-size: 2rem;
+    font-weight: 400;
+    /* color: #475569; */
+    color: black;
+    /* change */
+}
+
+.nav-link:hover {
+    color: #369CB0;
+}
+
+.nav-logo img {
+    text-decoration: none;
+    width: 200px;
+    /* Ukuran logo, sesuaikan jika perlu */
+    height: auto;
+    margin-right: 10px;
+    margin-left: 30px;
+    /* Memberikan jarak antara logo dan teks */
+}
+
+.action-btn {
+    background: linear-gradient(270deg, #099abe 30%, #369CB0 70%);
+    /* Latar awal gradasi */
+    color: white;
+    /* Warna teks */
+    padding: 20px 30px;
+    /* Spasi di dalam tombol */
+    border-radius: 5px;
+    /* Membuat sudut melengkung */
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    /* Ukuran font */
+    font-weight: bold;
+    /* Membuat teks tebal */
+    text-decoration: none;
+    /* Menghilangkan underline */
+    /* Margin kiri */
+    margin-right: 30px;
+    /* Margin kanan */
+    /* Efek transisi untuk hover */
+    /* Border transparan */
+    display: inline-block;
+    /* Agar tombol terlihat rapi */
+    text-align: center;
+    /* Pusatkan teks */
+    cursor: pointer;
+    /* Ubah kursor menjadi pointer */
+}
+
+.action-btn:hover {
+    background: white;
+    /* Pastikan seluruh properti background diganti */
+    color: #369CB0;
+    /* Teks berubah menjadi biru */
+    border: 2px solid #369CB0;
+    text-shadow: none;
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 0.5rem;
+        box-shadow: none;
+        margin-top: -0.7rem;
+        padding-top: 0.7rem;
+        left: 0;
+        right: 0;
+    }
+    .action-btn {
+        padding: 12px 14px;
+        font-size: 1.3rem;
+        margin: 0;
+        margin-right: -5rem;
+        margin-left: 0;
+    }
+    .nav-logo img {
+        width: 120px;
+        height: auto;
+        margin: 0;
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        /* background-color: #fff; */
+        background-color: white;
+        width: 100%;
+        transition: 0.3s;
+        text-align: left;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.03);
+    }
+    .nav-link {
+        color: black;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-item {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: left;
+        margin-left: 20px;
+        padding-bottom: 8px;
+        border-bottom: none;
+        line-height: 1;
+    }
+    .nav-menu.active .nav-item {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.025);
+        /* Garis bawah hitam */
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .action-btn {
+        margin-left: 5rem;
+    }
+}
+
+.connect-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    color: black;
+    margin: 1rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Tetap gunakan ini agar elemen bisa diposisikan dengan z-index */
+    z-index: 1;
+    /* Ubah nilai z-index menjadi positif, atau hapus jika tidak diperlukan */
+}
+
+.connect-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.connect-section h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.connect-section p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.connect-button {
+    background-color: #099abe;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+
+/* nav akhir */
+
+.loader {
+    width: 120px;
+    height: 22px;
+    border-radius: 20px;
+    color: #369CB0;
+    border: 2px solid;
+    position: absolute;
+    /* Mengatur posisi absolut */
+    top: 50%;
+    /* Mengatur posisi dari atas */
+    left: 50%;
+    /* Mengatur posisi dari kiri */
+    transform: translate(-50%, -50%);
+    /* Menggeser loader ke tengah */
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    margin: 2px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: currentColor;
+    animation: l6 1s infinite;
+}
+
+@keyframes l6 {
+    100% {
+        inset: 0;
+    }
+}
+
+.loding {
+    display: none;
+}
+
+
+/* Property Card End */
+
+
+/* footer section starts here  */
+
+footer {
+    width: 100%;
+}
+
+footer .footer {
+    background: #F4F4F4;
+    padding: 6rem 7rem;
+    padding-bottom: 1rem;
+}
+
+footer .footer .container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+    gap: 2rem;
+}
+
+footer .footer .container .detail {
+    max-width: 32rem;
+}
+
+footer .footer .container .detail h3 img {
+    width: 180px;
+    height: auto;
+    margin-top: -2rem;
+}
+
+footer .footer .container .detail p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 2rem;
+}
+
+footer .footer .container .detail h5 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+footer .footer .container .detail a {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1.3rem;
+    border-bottom: 2px solid #369CB0;
+    padding: 1px 0;
+    display: inline-block;
+}
+
+footer .footer .container .detail .social {
+    display: flex;
+    gap: .8rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.footer .container .detail .social a {
+    box-shadow: 0 0 5px #369CB0;
+    background-color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+footer .footer .container h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    color: black;
+}
+
+footer .footer .container li {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+footer .footer .container a {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1.4rem;
+}
+
+footer .footer .container a:hover {
+    color: black;
+}
+
+footer .footer .container span {
+    color: white;
+    background: #369CB0;
+    font-size: 1.3rem;
+    padding: .1rem .5rem;
+    border-radius: .3rem;
+    font-weight: 500;
+}
+
+footer .footer .copyright h6 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+footer .footer .copyright a {
+    color: rgba(0, 0, 0, 0.8);
+    margin-left: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 1020px) {
+    footer .footer {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 910px) {
+    footer .footer .container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    footer .footer .copyright h6 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer .footer .copyright h6 {
+        font-size: 1.1rem;
+    }
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.whatsapp-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #369CB0;
+    /* Warna hijau WhatsApp */
+    animation: ripple 2s infinite;
+    z-index: 1;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.chat-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #369CB0;
+    border-radius: 50%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.chat-logo:hover {
+    transform: scale(1.1);
+}
+
+.chat-logo img {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* Chatbox */
+
+.chat-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 340px;
+    max-width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+
+/* Header Chatbox */
+
+.chat-header {
+    background: #369CB0;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+
+/* Isi Chat */
+
+.chat-body {
+    padding: 15px;
+    height: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.message {
+    padding: 12px;
+    border-radius: 8px;
+    max-width: 75%;
+    font-size: 14px;
+    word-wrap: break-word;
+    display: inline-block;
+    position: relative;
+}
+
+.user-message {
+    background: #e2f7f5;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+.bot-message {
+    background: #f1f3f5;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+
+/* Tombol Chat (Horizontal dengan 2 Baris) */
+
+.chat-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Tombol */
+
+.chat-footer button {
+    background: #369CB0;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+    white-space: normal;
+    /* Izinkan teks turun ke baris berikutnya */
+    word-wrap: break-word;
+    /* Pecah kata jika terlalu panjang */
+    overflow-wrap: break-word;
+    /* Pecah kata panjang sesuai area */
+    flex: 1;
+    /* Membuat tombol memiliki lebar yang sama */
+    min-width: 100px;
+    /* Lebar minimal tombol */
+}
+
+.chat-footer button:hover {
+    background: #34b5ce;
+    transform: scale(1.05);
+}
+
+.chat-footer button:active {
+    transform: scale(0.98);
+}

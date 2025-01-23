@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us -adhome</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'poppins', sans-serif;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .horo {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            position: relative;
+            margin-bottom: 0;
+            margin-top: 8rem;
+            background: white;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            flex-wrap: wrap;
+            /* Memungkinkan elemen untuk mengalir pada layar kecil */
+        }
+        
+        .horo .contont {
+            flex: 1;
+            padding: 1.4rem 7%;
+            max-width: 85rem;
+            margin-right: 20px;
+            /* Jarak antara teks dan gambar */
+        }
+        
+        .horo .contont h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 4em;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            margin-top: 3rem;
+            /* Menambahkan jarak antar huruf */
+        }
+        
+        .horo .contont p {
+            font-size: 1.5rem;
+            /* Ukuran font yang lebih nyaman untuk dibaca */
+            margin-top: 1rem;
+            line-height: 1.6;
+            font-weight: 500;
+            /* Mengurangi ketebalan font agar lebih ringan */
+            color: #222;
+            max-width: 500px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .horo .contont .cto {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 2rem 3.5rem;
+            font-size: 1.4rem;
+            color: white;
+            background: linear-gradient(270deg, #036E89 30%, #369CB0 70%);
+            border-radius: 30px;
+            box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+            text-decoration: none;
+        }
+        
+        .horo .contont .cto:hover {
+            background: transparent;
+            border: 1px solid #369CB0;
+            color: #369CB0;
+        }
+        /* Gaya untuk gambar bus */
+        
+        .horo .bus {
+            position: relative;
+            right: 10%;
+            width: 350px;
+            margin-top: -200px;
+        }
+        
+        .horo .bus img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        /* Media Queries untuk perangkat dengan lebar maksimal 768px */
+        
+        @media screen and (max-width: 768px) {
+            .horo {
+                text-align: center;
+                flex-direction: column;
+                margin-left: 2rem;
+                /* Gambar turun ke bawah teks pada perangkat kecil */
+            }
+            .horo .contont {
+                margin-top: 70px;
+            }
+            .horo .contont h1 {
+                margin-top: -9rem;
+                font-size: 3.5em;
+            }
+            .horo .contont p {
+                font-size: 1.5rem;
+            }
+            .horo .contont .cto {
+                font-size: 1.2rem;
+                padding: 2rem 3rem;
+            }
+            .horo .bus {
+                right: 0;
+                width: 80%;
+                /* Menyesuaikan ukuran gambar */
+                margin-top: 2rem;
+                /* Memberikan jarak setelah teks */
+            }
+        }
+        /* Media Queries untuk perangkat dengan lebar maksimal 480px */
+        
+        @media screen and (max-width: 480px) {
+            .horo .contont {
+                margin-top: 70px;
+            }
+            .horo .contont h1 {
+                font-size: 2.8em;
+            }
+            .horo .contont p {
+                font-size: 1.3rem;
+            }
+            .horo .contont .cto {
+                font-size: 1.3rem;
+                padding: 2rem 3rem;
+            }
+        }
+        
+        .why-choose-us {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .why-choose-us h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* Default: 4 card sejajar */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.162);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-radius: 20px;
+            border: 1px solid #369CB0;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        
+        .card h2 {
+            font-size: 1.3rem;
+            color: #222;
+            font-weight: 600;
+            color: #369CB0;
+        }
+        
+        .card p {
+            font-size: 1.3rem;
+            color: #222;
+            font-weight: 600;
+        }
+        /* Responsiveness */
+        
+        @media (max-width: 992px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 card sejajar untuk perangkat kecil */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card h2 {
+                font-size: 1rem;
+            }
+            .card p {
+                font-size: 1rem;
+            }
+        }
+        /* Global Container for Visi and Misi */
+        /* Global Container for Visi and Misi */
+        
+        .visi-misi {
+            margin-bottom: 20px;
+        }
+        
+        .visi-misi h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        /* Row Layout for Image and Text */
+        /* Container untuk misi */
+        
+        .misi-container {
+            display: flex;
+            justify-content: space-between;
+            /* Elemen tersebar ke kanan dan kiri */
+            gap: 20px;
+            /* Jarak antara elemen */
+            margin-bottom: 20px;
+            /* Jarak antar baris */
+        }
+        /* Row untuk gambar dan teks */
+        
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            /* Jarak antara gambar dan teks */
+            flex: 1;
+            /* Mengatur lebar fleksibel */
+        }
+        /* Gambar */
+        
+        .row img {
+            width: 60px;
+            height: auto;
+            flex-shrink: 0;
+            /* Gambar tidak mengecil terlalu banyak */
+        }
+        /* Teks */
+        
+        .row p {
+            font-size: 1.5rem;
+            margin: 0;
+            text-align: left;
+            word-wrap: break-word;
+            /* Bungkus teks jika terlalu panjang */
+        }
+        /* Responsif untuk layar sedang */
+        
+        @media (max-width: 768px) {
+            .misi-container {
+                flex-wrap: wrap;
+                /* Elemen akan turun ke baris baru */
+                gap: 15px;
+                margin-left: 0;
+                /* Jarak antar elemen lebih kecil */
+            }
+            .row img {
+                width: 60px;
+                /* Kecilkan gambar */
+            }
+            .row p {
+                font-size: 1.3rem;
+                /* Ukuran teks lebih kecil */
+            }
+        }
+        /* Responsif untuk layar kecil */
+        
+        @media (max-width: 480px) {
+            .misi-container {
+                flex-direction: column;
+                margin-left: 0;
+                /* Elemen ditampilkan vertikal */
+            }
+            .row img {
+                width: 60px;
+                /* Gambar lebih kecil lagi */
+            }
+            .row p {
+                font-size: 1.3rem;
+                /* Ukuran teks lebih kecil */
+            }
+        }
+        /* css our team start */
+        /* Specific rules for the CEO group */
+        
+        .ceo {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        /* Specific rules for the Syafiq group */
+        
+        .syafiq {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .ourteam {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .ourteam h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #369CB0;
+        }
+        
+        .ourteam p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #222;
+        }
+        
+        .atb-team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .rwo {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .mombor {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: width 0.3s ease;
+        }
+        
+        .mombor img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        
+        .mombor h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: black;
+        }
+        
+        .mombor p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+        /* Media Query for small devices */
+        
+        @media (max-width: 768px) {
+            .mombor {
+                width: 250px;
+                /* Reduce the card width */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mombor {
+                width: 250px;
+                /* Further reduce the card width for very small devices */
+            }
+            .mombor h3 {
+                font-size: 1.3rem;
+            }
+            .mombor p {
+                font-size: 1.5rem;
+            }
+        }
+        /* Specific rules for the CEO row */
+        
+        .seo-raw {
+            flex-wrap: nowrap;
+            /* Ensure Ari and Dendy stay in one row */
+            gap: 15px;
+            /* Adjust gap for smaller screens */
+        }
+        
+        @media (max-width: 480px) {
+            .seo-raw {
+                justify-content: space-around;
+                width: 400px;
+                gap: 20px;
+                /* Adjust alignment for small devices */
+            }
+            .seo-raw .mombor {
+                display: flex;
+                /* Gunakan flexbox */
+                flex-direction: column;
+                /* Atur elemen dalam kolom (default untuk flexbox) */
+                align-items: center;
+                /* Pastikan semua elemen di tengah */
+                text-align: center;
+                /* Pusatkan teks */
+            }
+            .seo-raw .mombor h3 {
+                font-size: 1.3rem;
+                /* Ukuran font kecil */
+                margin: 0;
+                /* Pastikan tidak ada margin tambahan */
+                line-height: 1.2;
+                /* Atur jarak antar baris untuk teks kecil */
+            }
+            .seo-raw .mombor p {
+                font-size: 1.5rem;
+                /* Ukuran font proporsional */
+                margin-top: 5px;
+                /* Jarak atas untuk teks tambahan */
+                margin-bottom: 0;
+                line-height: 1.2;
+                /* Jarak antar baris */
+            }
+        }
+        /* css our team end */
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div class="loding">
+        <header class="header">
+            <nav class="navbar">
+                <a href="index.html" class="nav-logo"><img src="logofix.jpg" alt=""></a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="kpr.html" class="nav-link">Layanan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link" style="color: #369CB0;">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="official.html" class="nav-link">Official partner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <a href="https://wa.me/62822133355?text=Halo adhome.co.id saya ingin bertanya seputar AD.Home" class="action-btn">Hubungi Kami</a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+        <section class="horo" id="home">
+            <main class="contont">
+                <div data-aos="fade-right" data-aos-duration="700">
+                    <h1>
+                        Mengenal Lebih Dekat <br><span style="color: #369CB0;">ad</span>home
+                    </h1>
+                    <p>Solusi untuk mencari hunian sesuai dengan impian. AD.Home adalah platform transaksi properti end-to-end untuk transaksi pembelian rumah, ruko, dan apartemen.</p>
+
+                    <!-- Visi Section -->
+                    <div class="visi-misi">
+                        <h2>Visi</h2>
+                        <div class="row">
+                            <img src="visi (2).png" alt="Visi Image" width="100px" height="auto">
+                            <p>Solusi digitalisasi informasi properti, serta memudahkan transaksi kepemilikan hunian yang sesuai dengan impian dan finansial Anda.</p>
+                        </div>
+                    </div>
+
+                    <!-- Misi Section -->
+
+
+                    <div class="visi-misi">
+                        <h2>Misi</h2>
+                        <div class="misi-container">
+                            <div class="row">
+                                <img src="misi (4).png" alt="Misi Image" width="100px" height="auto">
+                                <p>Digitalisasi Pemasaran & Informasi Properti</p>
+                            </div>
+                            <div class="row">
+                                <img src="misi (3).png" alt="Misi Image" width="100px" height="auto">
+                                <p>Memudahkan Transaksi Kepemilikan Properti</p>
+                            </div>
+                        </div>
+                        <div class="misi-container">
+                            <div class="row">
+                                <img src="misi (2).png" alt="Misi Image" width="100px" height="auto">
+                                <p>Memberikan Solusi Untuk Kesehatan Finansial</p>
+                            </div>
+                            <div class="row">
+                                <img src="misi (1).png" alt="Misi Image" width="100px" height="auto">
+                                <p>Mewujudkan Desain Hunian Sesuai Keingina</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="official.html" class="cto">official partner kami</a>
+                </div>
+            </main>
+
+            <div class="bus">
+                <img src="rumah.jpg" alt="">
+            </div>
+        </section>
+
+
+        <!-- our team start -->
+        <section class="ourteam">
+            <h2>Our Team</h2>
+            <p>Dedicated to providing expertise in digital property and banking in Indonesia.</p>
+            <div class="atb-team">
+                <!-- Row for Ari and Dendy -->
+                <div class="rwo seo-raw">
+                    <div class="mombor">
+                        <img src="noimg.png" alt="Ari Andriyana">
+                        <h3>Ari Andriyana SE MM</h3>
+                        <p>CEO, Founder</p>
+                    </div>
+                    <div class="mombor">
+                        <img src="noimg.png" alt="Dendy Pebrianto">
+                        <h3>Dendy Pebrianto SE MM</h3>
+                        <p>CEO, Founder</p>
+                    </div>
+                </div>
+                <!-- Row for other team members -->
+                <div class="rwo">
+                    <div class="mombor">
+                        <img src="noimg.png" alt="Linda Yanurita">
+                        <h3>Linda Yanurita</h3>
+                        <p>Property Consultant</p>
+                    </div>
+                    <div class="mombor">
+                        <img src="noimg.png" alt="Deni Erlangga">
+                        <h3>Deni Erlangga. S</h3>
+                        <p>Property Consultant</p>
+                    </div>
+                    <div class="mombor">
+                        <img src="noimg.png" alt="Syafiq">
+                        <h3>lorem</h3>
+                        <p>Property Consultant</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- our team end -->
+        <section class="why-choose-us">
+            <h2>Kenapa Harus Pilih Kami?</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="why (4).png" alt="Gambar 1">
+                    <h2>Pencarian Properti</h2>
+                    <p>Daftar properti yang sesuai dengan lokasi yang anda inginkan.</p>
+                </div>
+                <div class="card">
+                    <img src="why (3).png" alt="Gambar 2">
+                    <h2>Transaksi properti</h2>
+                    <p>Transaksi end to end dari pencarian hingga pembayaran</p>
+                </div>
+                <div class="card">
+                    <img src="why (2).png" alt="Gambar 3">
+                    <h2>KPR/KPA Digital</h2>
+                    <p>Konsultasi proses pengajuan KPR/KPA secara online oleh best advisor</p>
+                </div>
+                <div class="card">
+                    <img src="why (1).png" alt="Gambar 4">
+                    <h2>Layanan Jasa</h2>
+                    <p>Layanan jasa desain interior & furniture</p>
+                </div>
+
+
+            </div>
+        </section>
+        <!-- footer section starts here  -->
+        <footer>
+            <section class="footer">
+                <div class="container">
+                    <div class="detail">
+                        <h3><img src="logor.png" alt=""></h3>
+                        <p>Ruko River Town, JL. Celebration Boulevard Blok BA 2 No. 20. Grand Wisata Kel. Lambang Sari. Kec. Tambun Selatan. Kab. Bekasi - Jawa Barat (17510)</p>
+                        <h5>Social Media </h5>
+                        <a href="#">Official.adhome@gmail.com</a>
+                        <!--  -->
+                        <div class="social">
+                            <a href="https://www.facebook.com/username" target="_blank" class="icon" title="Facebook">
+                                <i class="fab fa-facebook-square"></i>
+                            </a>
+                            <a href="https://www.instagram.com/adhome.co.id?igsh=MWtjOTBvbWk1cnFtdA==" target="_blank" class="icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@username" target="_blank" class="icon" title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="about-us">
+                        <h4>Menu</h4>
+                        <li><a href="kpr.html">layanan</a></li>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="official.html">official partner<span>Lihat Sekarang!</span></a></li>
+                        <li><a href="contact.html">contact</a></li>
+                    </div>
+                    <div class="about-us">
+                        <h4>help</h4>
+                        <li><a href="#">contact</a></li>
+                    </div>
+                    <div class="about-us">
+                        <h4>Butuh Info?</h4>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="about.html">about adhome</a></li>
+                    </div>
+                </div>
+
+                <div class="copyright">
+
+                    <h6>&copy;2025 - adhome all rights reserved</h6>
+
+
+                </div>
+            </section>
+        </footer>
+        <div class="chat-logo" onclick="toggleChat()">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/chat.png" alt="Chat Icon">
+        </div>
+
+        <!-- Chatbox -->
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">AI Chat FAQ</div>
+            <div class="chat-body" id="chatBody"></div>
+            <div class="chat-footer">
+                <button onclick="sendQuestion('Apa itu adhome?')">Apa itu adhome?</button>
+                <button onclick="sendQuestion('adhome menyediakan property apa saja?')">adhome menyediakan property apa saja?</button>
+                <!-- <button onclick="sendQuestion('biaya renovasi rumah')">Biaya renovasi rumah?</button>
+                <button onclick="sendQuestion('perbedaan rumah minimalis dan modern')">Beda rumah minimalis dan modern?</button> -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none';
+            const content = document.querySelector('.loding');
+            content.style.display = 'block';
+            document.body.style.opacity = 1;
+        }, 1000);
+
+        document.body.style.opacity = 1;
+    </script>
+    <script>
+        // Data pertanyaan dan jawaban
+        const faqData = {
+            "Apa itu adhome?": "adhome adalah perusahaan property yang menyediakan banyak macam jenis property.",
+            "adhome menyediakan property apa saja?": "adhome menyediakan banyak macamm property contoh nya ad rumah, ruko , kantor, kavling , apartemen ",
+            "biaya renovasi rumah": "Biaya renovasi rumah bervariasi tergantung pada ukuran rumah dan jenis renovasi. Rata-rata, bisa dimulai dari Rp 50 juta hingga ratusan juta.",
+            "perbedaan rumah minimalis dan modern": "Rumah minimalis mengutamakan kesederhanaan dan efisiensi ruang, sementara rumah modern lebih fokus pada teknologi dan desain kontemporer."
+        };
+
+        // Fungsi untuk menampilkan/menghilangkan chat
+        function toggleChat() {
+            const chatContainer = document.getElementById("chatContainer");
+            const isHidden = chatContainer.style.display === "none" || chatContainer.style.display === "";
+
+            // Tampilkan atau sembunyikan chat
+            chatContainer.style.display = isHidden ? "flex" : "none";
+        }
+
+        // Fungsi untuk menambahkan pesan ke chat body
+        function addMessage(message, isUser = true) {
+            const chatBody = document.getElementById("chatBody");
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `message ${isUser ? "user-message" : "bot-message"}`;
+            messageDiv.textContent = message;
+            chatBody.appendChild(messageDiv);
+
+            // Scroll otomatis ke bawah
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // Fungsi untuk mengirim pertanyaan
+        function sendQuestion(question) {
+            // Tampilkan pertanyaan pengguna
+            addMessage(question, true);
+
+            // Cari jawaban di data FAQ
+            const answer = faqData[question] || "Maaf, saya tidak memiliki jawaban untuk pertanyaan tersebut.";
+
+            // Tampilkan jawaban dari AI dengan sedikit delay
+            setTimeout(() => addMessage(answer, false), 600);
+        }
+    </script>
+</body>
+
+</html>
